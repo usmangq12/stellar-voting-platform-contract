@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Keypair } from 'stellar-sdk';
-// import { PrismaService } from '../prisma/prisma.service';
+import { SignUpDto } from 'src/dto/sign-up.dto';
 
 @Injectable()
-export class SignUpService {
+export class AuthService {
   generateKeypair() {
     const keypair = Keypair.random(); // Generate a new keypair
     return {
@@ -12,12 +12,12 @@ export class SignUpService {
     };
   }
 
-  async registerUser(fullName: string, email: string, wallet: string, document: any) {
-    // Generate Stellar keypair
+  async signUp(signUpDto: SignUpDto): Promise<{ publicKey: string; secret: string }> {
+    const { fullName, email, wallet, document } = signUpDto;
     const { publicKey, secret } = this.generateKeypair();
 
-    // Save user data to the database (you might use Prisma or another ORM)
-    // await PrismaService.user.create({
+    // Save user data to the database (e.g., using Prisma or another ORM)
+    // await this.prisma.user.create({
     //   data: {
     //     fullName,
     //     email,

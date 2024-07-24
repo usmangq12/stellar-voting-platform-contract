@@ -4,10 +4,10 @@ import { AppService } from './app.service';
 import { GetController } from './get/get.controller';
 import { GetService } from './get/get.service';
 // import { StellarAuthModule } from './stellar-auth/stellar-auth.module';
-import { SignUpModule } from './auth/signup.module';
+import { authModule } from './auth/auth.module';
 
 @Module({
-  imports: [SignUpModule],
+  imports: [authModule],
   controllers: [AppController, GetController, ],
   providers: [AppService, GetService ],
 })
