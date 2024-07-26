@@ -1,7 +1,7 @@
 import { Controller, Post, Body, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
-import { extname } from 'path';  
+import { extname } from 'path';
 import { AuthService } from './auth.service';
 import { SignUpDto } from 'src/dto/sign-up.dto';
 import { SignInDto } from 'src/dto/sign-in.dto';
@@ -39,4 +39,3 @@ export class AuthController {
     return result;
   }
 }
-
