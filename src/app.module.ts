@@ -7,6 +7,7 @@ import { GetController } from './get/get.controller';
 import { GetService } from './get/get.service';
 import { AuthModule } from './auth/auth.module';
 import { CandidateModule } from './candidate/candidate.module';
+import { VoteModule } from './vote/vote.module';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -29,6 +30,7 @@ const ormconfig = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'ormc
     }),
     AuthModule,
     CandidateModule,
+    VoteModule,
   ],
   controllers: [AppController, GetController],
   providers: [AppService, GetService],
