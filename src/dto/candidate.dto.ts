@@ -19,15 +19,9 @@ export class CandidateDto {
   email?: string;
 
   @IsOptional()
-  @IsString()
-  @IsPhoneNumber(null, { message: 'Phone number must be a valid phone number.' })
   phone?: string;
 
   @IsOptional()
-  @IsString()
-  @Matches(/^https:\/\/twitter\.com\/[a-zA-Z0-9_]{1,15}$/, {
-    message: 'The Twitter link must be a valid Twitter URL.',
-  })
   twitter?: string;
 
   @IsOptional()
